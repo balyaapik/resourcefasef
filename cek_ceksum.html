@@ -262,7 +262,13 @@
 		  input.value = complement.charAt(i); // Added semicolon here
 		}
 		
+		if(complement === '00000000'){
+			alert("Ceksum Sukses");
+		}
 		
+		if(complement !== '00000000'){
+			alert("Ceksum Salah");
+		}
 		
 		//Output the string
 		console.log("Byte-1 values as string:", byte1Values);
