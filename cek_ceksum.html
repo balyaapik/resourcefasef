@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Checksum</title>
+    <link rel="stylesheet" href="./css/general.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+	<link href="./css/bootstrap.min.css" rel="stylesheet">
+	<script src="./js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+	  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+		  <a class="navbar-brand" href="#">RESOURCE INFORMATIKA FASE F</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+			  <li class="nav-item">
+				<a class="nav-link" href="index.html">Checksum 8-bit</a>
+			  </li>
+			  <li class="nav-item active">
+				<a class="nav-link" href="cek_ceksum.html">Cek Cheksum 8-bit</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#">Parity-test</a>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+	  
+    <main class="container mt-5 text-center"> <!-- Added Bootstrap classes for spacing and text alignment -->
+		<h1 class="display-4">Pengecekan Checksum 8 bits</h1> <!-- Used Bootstrap display heading class -->
+	</main>
+	
+	 <div class="container-fluid p-2">
+		<div class="row justify-content-center mt-5">
+		  <div class="col-md-8">
+			<table id="checksumTable" class="table table-bordered">
+			<tr>
+						<th></th>
+						<th>Bit-1</th>
+						<th>Bit-2</th>
+						<th>Bit-3</th>
+						<th>Bit-4</th>
+						<th>Bit-5</th>
+						<th>Bit-6</th>
+						<th>Bit-7</th>
+						<th>Bit-8</th>
+					</tr>
+					<tr>
+						<td>Byte-1</td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+					</tr>
+					<tr>
+						<td>Byte-2</td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+						<td><input type="number" min="0" max="1" step="1"></td>
+					</tr>
+					<tr>
+						<td>Checksum</td>
+						<td><input type="number" min="0" max="1" step="1" ></td>
+						<td><input type="number" min="0" max="1" step="1" ></td>
+						<td><input type="number" min="0" max="1" step="1" ></td>
+						<td><input type="number" min="0" max="1" step="1" ></td>
+						<td><input type="number" min="0" max="1" step="1" ></td>
+						<td><input type="number" min="0" max="1" step="1" ></td>
+						<td><input type="number" min="0" max="1" step="1" ></td>
+						<td><input type="number" min="0" max="1" step="1" ></td>
+					</tr>
+					<tr>
+						<td>Sum</td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+					</tr>
+					<tr>
+						<td>Komplemen</td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+						<td><input type="number" min="0" max="1" step="1" disabled></td>
+					</tr>
+			</table>
+		  </div>
+		</div>
+    <div class="row justify-content-center mt-4"> <!-- Move the button row outside the col-md-8 -->
+      <div class="col-md-4 text-center"> <!-- Adjust the column size to match the table -->
+        <button onclick="calculate()" class="btn btn-primary">Calculate Checksum</button>
+      </div>
+  </div>
+	
+	
+	 <div class="container-fluid p-2"> <!-- Removed h-100 class -->
+		<div class="row">
+		  <footer class="col-12 bg-dark text-white py-4">
+			<div class="container text-center">
+			  <p>&copy; 2024 Davinga Balya Rochmadi. All rights reserved.| <a href="https://www.balyarochmadi.com"> balyarochmadi.com </a></p>
+			  <p> Bakti Alumni SMAN 1 Muntilan, Semoga bermanfaat</p>
+			</div>
+		  </footer>
+		</div>
+	</div>
+	
+	<script>
+	  function bitwiseFlip(binaryString) {
+		let flippedString = '';
+		for (let i = 0; i < binaryString.length; i++) {
+			// If the current bit is '0', replace it with '1'; if '1', replace it with '0'
+			flippedString += (binaryString[i] === '0') ? '1' : '0';
+		}
+		return flippedString;
+		}
+
+	  
+	  function binaryToDecimal(binaryString) {
+		// Check if the string contains only '0' and '1'
+		if (!/^[01]+$/.test(binaryString)) {
+		  throw new Error("Invalid binary string: " + binaryString);
+		}
+
+		// Parse the binary string to decimal
+		return parseInt(binaryString, 2);
+	  }
+
+	  function decimalToBinary(decimalNumber) {
+		// Convert decimal number to binary string
+		return decimalNumber.toString(2);
+	  }
+
+
+		function calculateSum(byte1, byte2, checksum) {
+			// Convert binary strings to decimal numbers
+			var byte1Dec = parseInt(byte1, 2);
+			var byte2Dec = parseInt(byte2, 2);
+
+			// Calculate sum of byte1 and byte2
+			var sum = byte1Dec + byte2Dec;
+
+			// Add checksum to the sum
+			sum += parseInt(checksum, 2);
+
+			// If sum exceeds 255, subtract 256
+			if (sum > 255) {
+				sum -= 256;
+			}
+
+			// Convert sum back to 8-bit binary string
+			var sumBinary = sum.toString(2).padStart(8, '0');
+
+			return sumBinary;
+		}
+	
+	   function complement8Bit(binaryString) {
+			var complement = "";
+			for (var i = 0; i < binaryString.length; i++) {
+				if (binaryString[i] === "0") {
+					complement += "1";
+				} else {
+					complement += "0";
+						}
+					}
+			return complement;
+		}
+		
+	  function calculate() {
+		// Select all input elements in the "Byte-1" row
+		var byte1Inputs = document.querySelectorAll('#checksumTable tr:nth-child(2) input[type="number"]');
+		var byte2Inputs = document.querySelectorAll('#checksumTable tr:nth-child(3) input[type="number"]');
+		var checksum = document.querySelectorAll('#checksumTable tr:nth-child(4) input[type="number"]');
+		
+		// Extract values and concatenate them into a string
+		var byte1Values = '';
+		var byte2Values = '';
+		var checksumValues = '';
+
+		byte1Inputs.forEach(function(byte1Input) {
+		  byte1Values += byte1Input.value;
+		});
+
+		byte2Inputs.forEach(function(byte2Input) {
+		  byte2Values += byte2Input.value;
+		});
+		
+		checksum.forEach(function(checksum) {
+		  checksumValues += checksum.value;
+		});
+		
+		if (byte1Values === '' | byte1Values.length < 8 ) {
+			alert("Please insert the Byte-1 value.");
+			return; // Exit the function early
+		}
+		
+		if (byte2Values === '' | byte2Values.length < 8) {
+			alert("Please insert the Byte-2 value.");
+			return; // Exit the function early
+		}
+		
+		if (checksumValues === '' | checksumValues.length < 8) {
+			alert("Please insert the checksum value.");
+			return; // Exit the function early
+		}
+
+		//calculate sums 
+		var sumstring = calculateSum(byte1Values, byte2Values, checksumValues);
+
+		if (sumstring.length > 8) {
+		  sums = sumstring.substring(1, 10); // Keep characters from index 2 to 9 (inclusive)
+		} else if (sumstring.length < 8) {
+		  sums = '0'.repeat(8 - sumstring.length) + sumstring; // Concatenate '0's at the beginning
+		} else {
+		  sums = sumstring; // No need for further processing if it's already 8 characters long
+		}
+		
+		
+		var sumrow = document.querySelector('#checksumTable tr:nth-child(5)');
+
+		for (var i = 0; i < 8; i++) {
+		  // If it's not the first character, populate the cell
+		  var input = sumrow.cells[i+1].querySelector('input[type="number"]'); // Get the cell at index (i + 1)
+		  // Set the cell content to the character from the string
+		  input.value = sums.charAt(i); // Added semicolon here
+		}
+		
+		var complement = complement8Bit(sums);
+		
+		var comprow = document.querySelector('#checksumTable tr:nth-child(6)');
+		
+		for (var i = 0; i < 8; i++) {
+		  // If it's not the first character, populate the cell
+		  var input = comprow.cells[i+1].querySelector('input[type="number"]'); // Get the cell at index (i + 1)
+		  // Set the cell content to the character from the string
+		  input.value = complement.charAt(i); // Added semicolon here
+		}
+		
+		
+		
+		//Output the string
+		console.log("Byte-1 values as string:", byte1Values);
+		console.log("Byte-2 values as string:", byte2Values);
+		console.log("sumstring:", sumstring);
+		console.log("complement:", complement);
+	  }
+	  
+	
+	 
+	
+	
+	</script>
+  </body>
+</html>
